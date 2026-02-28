@@ -1,18 +1,16 @@
 let selectedGame = "crystal";
 let boolColor = "";
 
-window.addEventListener("DOMContentLoaded", () => {
-	const dropdown = document.getElementById("sprite-dropdown");
+const dropdown = document.getElementById("sprite-dropdown");
 
-	dropdown.addEventListener("change", function() {
-		selectedGame = this.value;
-		if (selectedGame == "red-blue" || selectedGame == "yellow") {
-			boolColor = "-color";
-		} else {
-			boolColor = "";
-		}
-		getPokeImage();
-	});
+dropdown.addEventListener("change", function() {
+	selectedGame = this.value;
+	if (selectedGame == "red-blue" || selectedGame == "yellow") {
+		boolColor = "-color";
+	} else {
+		boolColor = "";
+	}
+	updateCalc();
 });
 
 const STATS = ["hp", "atk", "def", "spa", "spd", "spe"];
