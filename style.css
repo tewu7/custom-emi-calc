@@ -1016,6 +1016,10 @@ rt {
 	background-color: var(--background);
 	padding: 5px;
 	margin: 2px;
+	width: 62px;
+	height: 62px;
+	min-width: 62px;
+	min-height: 62px;
 }
 
 .micro-mon img {
