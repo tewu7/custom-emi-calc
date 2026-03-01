@@ -1,5 +1,4 @@
 let selectedGame = "crystal";
-let boolColor = "";
 
 const dropdown = document.getElementById("sprite-dropdown");
 
@@ -59,6 +58,7 @@ function getTinyPokemonDisplay(tp, extra = "") {
 
 function getPokeImage(poke, unownExtra = undefined) {
 	var shiny = poke.name && isShiny(poke) ? "shiny" : "normal";
+	let boolColor = "";
 	if (selectedGame == "red-blue" || selectedGame == "yellow") {
 		boolColor = "-color";
 	} else {
