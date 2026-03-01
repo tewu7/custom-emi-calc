@@ -1016,16 +1016,22 @@ rt {
 	background-color: var(--background);
 	padding: 5px;
 	margin: 2px;
-	width: 62px;
-	height: 62px;
 	max-width: 62px;
 	max-height: 62px;
+	width: auto;
+	height: auto;
+	object-fit: contain;
 }
 
 .micro-mon img {
 	border-width: 3px;
 	border-style: dashed;
 	border-color: transparent;
+	max-width: 62px;
+	max-height: 62px;
+	width: auto;
+	height: auto;
+	object-fit: contain;
 }
 
 .low-switch-priority {
