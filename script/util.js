@@ -14,7 +14,7 @@ function getTinyPokemonDisplay(tp, extra = "") {
 	var v = '<div class="tiny-poke">';
 	v += '<div class="tiny-poke-header">';
 	let url = getPokeImage(tp);
-	v += '<div class="tiny-poke-icon"><img src="' + url + '" onerror=this.onerror=null; this.src="' + url.replace(selectedGame, "crystal") + '"></div>';
+	v += '<div class="tiny-poke-icon"><img src="' + url + '" onerror="this.onerror=null; this.src="' + url.replace(selectedGame, "crystal") + '""></div>';
 	v += '<div class="tiny-poke-info">';
 	v += `<div style="display:flex;flex-wrap:wrap;">${pokeLink(p.name)} <span class="tiny-poke-level">Lvl ${tp.level}</span></div>`;
 	var typeDisplay = "";
