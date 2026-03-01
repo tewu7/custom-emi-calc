@@ -5,6 +5,8 @@ const dropdown = document.getElementById("sprite-dropdown");
 dropdown.addEventListener("change", function() {
 	selectedGame = this.value;
 	updateCalc();
+	updateBox();
+	displayTrainers();
 });
 
 const STATS = ["hp", "atk", "def", "spa", "spd", "spe"];
