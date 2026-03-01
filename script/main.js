@@ -68,7 +68,7 @@ function updateExtraDupes() {
 		if (pokemonByName.has(dupe)) {
 			let url = getPokeImage(pokemonByName.get(dupe));
 			v += `<div class="micro-mon drag-sortable">
-				<img draggable="false" src="${url}" onerror="this.onerror=null; this.src="${url.replace(selectedGame, "crystal")}"">
+				<img draggable="false" src="${url}" onerror=this.onerror=null; this.src="${url.replace(selectedGame, "crystal")}">
 			</div>`;
 		}
 	}

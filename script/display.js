@@ -22,7 +22,7 @@ function displayCalcPokemon(root, poke, opponent, right) {
 	root.getElementsByClassName("poke-item")[0].innerHTML = itemLink(poke.item);
 
 	let url = getPokeImage(poke);
-	root.getElementsByClassName("poke-icon")[0].innerHTML = '<img draggable="false" src="${url}" onerror="this.onerror=null; this.src="' + url.replace(selectedGame, "crystal") + '"">';
+	root.getElementsByClassName("poke-icon")[0].innerHTML = '<img draggable="false" src="' + url + '" onerror=this.onerror=null; this.src="' + url.replace(selectedGame, "crystal") + '">';
 	root.getElementsByClassName("poke-gender")[0].innerHTML = ["∅", "♀", "♂"][getGender(poke)];
 	if (right && root.getElementsByClassName("experience").length > 0) {
 		var exp = p.base_experience;
@@ -314,7 +314,7 @@ function displayPokemon(root, i) {
 	root.getElementsByClassName("poke-dex-num")[0].innerHTML = "#" + padNumber(p.pokedex);
 
 	let url = getPokeImage(p);
-	root.getElementsByClassName("poke-icon")[0].innerHTML = '<img draggable="false" src="' + url + '" onerror="this.onerror=null; this.src="' + url.replace(selectedGame, "crystal") + '"">';
+	root.getElementsByClassName("poke-icon")[0].innerHTML = '<img draggable="false" src="' + url + '" onerror=this.onerror=null; this.src="' + url.replace(selectedGame, "crystal") + '">';
 	var types = prettyType(p.types[0]);
 	if (p.types.length > 1) {
 		types += " " + prettyType(p.types[1]);
@@ -433,7 +433,7 @@ function updateCalc() {
 		var v = "";
 		for (var i = 0; i < box.length && i < box.length; i++) {
 			let url = getPokeImage(box[i]);
-			var img = '<img draggable="false" src="' + url + '" onerror="this.onerror=null; this.src="' + url.replace(selectedGame, "crystal") + '"">';
+			var img = '<img draggable="false" src="' + url + '" onerror=this.onerror=null; this.src="' + url.replace(selectedGame, "crystal") + '">';
 			v += '<div class="micro-mon drag-sortable" onclick="setPlayer(' + i + ')">' + img + "</div>";
 		}
 		document.getElementById("player").getElementsByClassName("calc-team")[0].innerHTML = v;
@@ -462,7 +462,7 @@ function getEnemyTeamDisplay(enemyTeam, trainer) {
 	for (let i in enemyTeam) {
 		var prioClass = ["low", "neutral", "high"][Math.sign(getSwitchPriority(enemyTeam[i], myPoke)) + 1];
 		let url = getPokeImage(enemyTeam[i]);
-		var img = `<img draggable="false" class="${prioClass}-switch-priority" src="${url}" onerror="this.onerror=null; this.src="${url.replace(selectedGame, "crystal")}"">`;
+		var img = `<img draggable="false" class="${prioClass}-switch-priority" src="${url}" onerror=this.onerror=null; this.src="${url.replace(selectedGame, "crystal")}">`;
 		v += `<div class="micro-mon" onclick="setEnemy(${trainer}, ${i})">${img}</div>`;
 	}
 	return v;
@@ -675,7 +675,7 @@ function getEncounterPoke(poke, header, footer, extraClasses) {
 	return `
 		<div class="encounter-poke${extraClasses ? " " + extraClasses : ""}">
 			${header ?? ""}
-			${createLink(`#/pokemon/${poke.name}/`, '<img draggable="false" src="' + url + '" onerror="this.onerror=null; this.src="' + url.replace(selectedGame, "crystal") + '"">')}
+			${createLink(`#/pokemon/${poke.name}/`, '<img draggable="false" src="' + url + '" onerror=this.onerror=null; this.src="' + url.replace(selectedGame, "crystal") + '">')}
 			${footer ?? ""}
 			<div class="type-slices">
 				${poke.types.displayMap(t => customLink(`#/type/${t}/`, `class="type-slice" style="background-color: ${typeColor(t)};"`, ""))}
