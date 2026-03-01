@@ -1016,11 +1016,6 @@ rt {
 	background-color: var(--background);
 	padding: 5px;
 	margin: 2px;
-	max-width: 62px;
-	max-height: 62px;
-	width: auto;
-	height: auto;
-	object-fit: contain;
 }
 
 .micro-mon img {
