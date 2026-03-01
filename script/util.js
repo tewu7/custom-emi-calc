@@ -1,9 +1,15 @@
 let selectedGame = "crystal";
+let boolColor = "";
 
 const dropdown = document.getElementById("sprite-dropdown");
 
 dropdown.addEventListener("change", function() {
 	selectedGame = this.value;
+	if (selectedGame == "red-blue" || selectedGame == "yellow") {
+		boolColor = "-color";
+	} else {
+		boolColor = "";
+	}
 	updateCalc();
 });
 
@@ -14,7 +20,8 @@ function getTinyPokemonDisplay(tp, extra = "") {
 	var v = '<div class="tiny-poke">';
 	v += '<div class="tiny-poke-header">';
 	let url = getPokeImage(tp);
-	let fallbackurl = url.replace(selectedGame, "crystal");
+	let url2 = getPokeImage(poke, undefined, boolColor = "");
+	let fallbackurl = url2.replace(selectedGame, "crystal");
 	v += '<div class="tiny-poke-icon"><img src="' + url + '" onerror="this.onerror=null; this.src=\'' + fallbackurl + '\'"></div>';
 	v += '<div class="tiny-poke-info">';
 	v += `<div style="display:flex;flex-wrap:wrap;">${pokeLink(p.name)} <span class="tiny-poke-level">Lvl ${tp.level}</span></div>`;
@@ -56,14 +63,8 @@ function getTinyPokemonDisplay(tp, extra = "") {
 	return v;
 }
 
-function getPokeImage(poke, unownExtra = undefined) {
+function getPokeImage(poke, unownExtra = undefined, boolColor) {
 	var shiny = poke.name && isShiny(poke) ? "shiny" : "normal";
-	let boolColor = "";
-	if (selectedGame == "red-blue" || selectedGame == "yellow") {
-		boolColor = "-color";
-	} else {
-		boolColor = "";
-	}
 	if (poke.name) {
 		if (poke.name == "unown" && !unownExtra) {
 			var letter = ((getDv(poke, "atk") & 0b0110) << 5) | ((getDv(poke, "def") & 0b0110) << 3) | ((getDv(poke, "spe") & 0b0110) << 1) | ((getDv(poke, "spa") & 0b0110) >> 1);

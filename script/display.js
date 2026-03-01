@@ -22,7 +22,8 @@ function displayCalcPokemon(root, poke, opponent, right) {
 	root.getElementsByClassName("poke-item")[0].innerHTML = itemLink(poke.item);
 
 	let url = getPokeImage(poke);
-	let fallbackurl = url.replace(selectedGame, "crystal");
+	let url2 = getPokeImage(poke, undefined, boolColor = "");
+	let fallbackurl = url2.replace(selectedGame, "crystal");
 	root.getElementsByClassName("poke-icon")[0].innerHTML = `<img draggable="false" src="${url}" onerror="this.onerror=null; this.src='${fallbackurl}'">`;
 	root.getElementsByClassName("poke-gender")[0].innerHTML = ["∅", "♀", "♂"][getGender(poke)];
 	if (right && root.getElementsByClassName("experience").length > 0) {
@@ -315,7 +316,8 @@ function displayPokemon(root, i) {
 	root.getElementsByClassName("poke-dex-num")[0].innerHTML = "#" + padNumber(p.pokedex);
 
 	let url = getPokeImage(p);
-	let fallbackurl = url.replace(selectedGame, "crystal");
+	let url2 = getPokeImage(poke, undefined, boolColor = "");
+	let fallbackurl = url2.replace(selectedGame, "crystal");
 	root.getElementsByClassName("poke-icon")[0].innerHTML = `<img draggable="false" src="${url}" onerror="this.onerror=null; this.src='${fallbackurl}'">`;
 	var types = prettyType(p.types[0]);
 	if (p.types.length > 1) {
@@ -435,7 +437,8 @@ function updateCalc() {
 		var v = "";
 		for (var i = 0; i < box.length && i < box.length; i++) {
 			let url = getPokeImage(box[i]);
-			let fallbackurl = url.replace(selectedGame, "crystal");
+			let url2 = getPokeImage(poke, undefined, boolColor = "");
+			let fallbackurl = url2.replace(selectedGame, "crystal");
 			var img = `<img draggable="false" src="${url}" onerror="this.onerror=null; this.src='${fallbackurl}'">`;
 			v += '<div class="micro-mon drag-sortable" onclick="setPlayer(' + i + ')">' + img + "</div>";
 		}
@@ -465,7 +468,8 @@ function getEnemyTeamDisplay(enemyTeam, trainer) {
 	for (let i in enemyTeam) {
 		var prioClass = ["low", "neutral", "high"][Math.sign(getSwitchPriority(enemyTeam[i], myPoke)) + 1];
 		let url = getPokeImage(enemyTeam[i]);
-		let fallbackurl = url.replace(selectedGame, "crystal");
+		let url2 = getPokeImage(poke, undefined, boolColor = "");
+		let fallbackurl = url2.replace(selectedGame, "crystal");
 		var img = `<img draggable="false" class="${prioClass}-switch-priority" src="${url}" onerror="this.onerror=null; this.src='${fallbackurl}'">`;
 		v += `<div class="micro-mon" onclick="setEnemy(${trainer}, ${i})">${img}</div>`;
 	}
@@ -676,7 +680,8 @@ function getEncounterPoke(poke, header, footer, extraClasses) {
 		poke = pokemonByName.get(poke);
 	}
 	let url = getPokeImage(poke.name);
-	let fallbackurl = url.replace(selectedGame, "crystal");
+	let url2 = getPokeImage(poke, undefined, boolColor = "");
+	let fallbackurl = url2.replace(selectedGame, "crystal");
 	return `
 		<div class="encounter-poke${extraClasses ? " " + extraClasses : ""}">
 			${header ?? ""}
