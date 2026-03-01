@@ -23,6 +23,7 @@ function displayCalcPokemon(root, poke, opponent, right) {
 
 	let url = getPokeImage(poke);
 	let fallbackurl = url.replace(selectedGame, "crystal");
+	fallbackurl = fallbackurl.replace(boolColor, "");
 	root.getElementsByClassName("poke-icon")[0].innerHTML = `<img draggable="false" src="${url}" onerror="this.onerror=null; this.src='${fallbackurl}'">`;
 	root.getElementsByClassName("poke-gender")[0].innerHTML = ["∅", "♀", "♂"][getGender(poke)];
 	if (right && root.getElementsByClassName("experience").length > 0) {
@@ -316,6 +317,7 @@ function displayPokemon(root, i) {
 
 	let url = getPokeImage(p);
 	let fallbackurl = url.replace(selectedGame, "crystal");
+	fallbackurl = fallbackurl.replace(boolColor, "");
 	root.getElementsByClassName("poke-icon")[0].innerHTML = `<img draggable="false" src="${url}" onerror="this.onerror=null; this.src='${fallbackurl}'">`;
 	var types = prettyType(p.types[0]);
 	if (p.types.length > 1) {
@@ -436,6 +438,7 @@ function updateCalc() {
 		for (var i = 0; i < box.length && i < box.length; i++) {
 			let url = getPokeImage(box[i]);
 			let fallbackurl = url.replace(selectedGame, "crystal");
+			fallbackurl = fallbackurl.replace(boolColor, "");
 			var img = `<img draggable="false" src="${url}" onerror="this.onerror=null; this.src='${fallbackurl}'">`;
 			v += '<div class="micro-mon drag-sortable" onclick="setPlayer(' + i + ')">' + img + "</div>";
 		}
@@ -466,6 +469,7 @@ function getEnemyTeamDisplay(enemyTeam, trainer) {
 		var prioClass = ["low", "neutral", "high"][Math.sign(getSwitchPriority(enemyTeam[i], myPoke)) + 1];
 		let url = getPokeImage(enemyTeam[i]);
 		let fallbackurl = url.replace(selectedGame, "crystal");
+	fallbackurl = fallbackurl.replace(boolColor, "");
 		var img = `<img draggable="false" class="${prioClass}-switch-priority" src="${url}" onerror="this.onerror=null; this.src='${fallbackurl}'">`;
 		v += `<div class="micro-mon" onclick="setEnemy(${trainer}, ${i})">${img}</div>`;
 	}
@@ -677,6 +681,7 @@ function getEncounterPoke(poke, header, footer, extraClasses) {
 	}
 	let url = getPokeImage(poke.name);
 	let fallbackurl = url.replace(selectedGame, "crystal");
+	fallbackurl = fallbackurl.replace(boolColor, "");
 	return `
 		<div class="encounter-poke${extraClasses ? " " + extraClasses : ""}">
 			${header ?? ""}

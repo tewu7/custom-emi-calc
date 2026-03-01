@@ -1022,6 +1022,8 @@ rt {
 	border-width: 3px;
 	border-style: dashed;
 	border-color: transparent;
+	min-width: 62px;
+	min-height: 62px;
 	max-width: 62px;
 	max-height: 62px;
 	width: auto;
