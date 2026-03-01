@@ -1022,10 +1022,10 @@ rt {
 	border-width: 3px;
 	border-style: dashed;
 	border-color: transparent;
-	min-width: 60px;
-	min-height: 60px;
-	max-width: 60px;
-	max-height: 60px;
+	min-width: 56px;
+	min-height: 56px;
+	max-width: 56px;
+	max-height: 56px;
 	width: auto;
 	height: auto;
 	object-fit: contain;
