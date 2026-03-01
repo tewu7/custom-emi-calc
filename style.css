@@ -1026,8 +1026,6 @@ rt {
 	min-height: 56px;
 	max-width: 56px;
 	max-height: 56px;
-	width: auto;
-	height: auto;
 	object-fit: contain;
 }
 
