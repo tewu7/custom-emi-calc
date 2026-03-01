@@ -16,7 +16,6 @@ function getTinyPokemonDisplay(tp, extra = "") {
 	var v = '<div class="tiny-poke">';
 	v += '<div class="tiny-poke-header">';
 	let url = getPokeImage(tp);
-	console.log("selectedGame:", selectedGame, "url:", url);
 	let fallbackurl = url.replace(selectedGame, "crystal");
 	v += `<div class="tiny-poke-icon"><img src="${url}" onerror="this.onerror=null; this.src='${fallbackurl}'"></div>`;
 	v += '<div class="tiny-poke-info">';
