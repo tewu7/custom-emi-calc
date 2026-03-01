@@ -58,12 +58,6 @@ function getTinyPokemonDisplay(tp, extra = "") {
 
 function getPokeImage(poke, unownExtra = undefined) {
 	var shiny = poke.name && isShiny(poke) ? "shiny" : "normal";
-	let boolColor = "";
-	if (selectedGame == "red-blue" || selectedGame == "yellow") {
-		boolColor = "-color";
-	} else {
-		boolColor = "";
-	}
 	if (poke.name) {
 		if (poke.name == "unown" && !unownExtra) {
 			var letter = ((getDv(poke, "atk") & 0b0110) << 5) | ((getDv(poke, "def") & 0b0110) << 3) | ((getDv(poke, "spe") & 0b0110) << 1) | ((getDv(poke, "spa") & 0b0110) >> 1);
@@ -77,7 +71,7 @@ function getPokeImage(poke, unownExtra = undefined) {
 	if (unownExtra !== undefined && poke == "unown") {
 		poke += ["-b", "-u", "-n", "-n", "-y", "-q", "-t"][unownExtra];
 	}
-	return 'https://img.pokemondb.net/sprites/' + selectedGame + '/' + shiny + '/' + poke + boolColor + '.png';
+	return 'https://img.pokemondb.net/sprites/' + selectedGame + '/' + shiny + '/' + poke + '.png';
 }
 
 function contains(list, value) {
