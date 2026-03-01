@@ -68,7 +68,6 @@ function updateExtraDupes() {
 		if (pokemonByName.has(dupe)) {
 			let url = getPokeImage(pokemonByName.get(dupe));
 			let fallbackurl = url.replace(selectedGame, "crystal");
-			fallbackurl = fallbackurl.replace(boolColor, "");
 			v += `<div class="micro-mon drag-sortable">
 				<img draggable="false" src="${url}" onerror="this.onerror=null; this.src='${fallbackurl}'">
 			</div>`;

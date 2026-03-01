@@ -15,7 +15,6 @@ function getTinyPokemonDisplay(tp, extra = "") {
 	v += '<div class="tiny-poke-header">';
 	let url = getPokeImage(tp);
 	let fallbackurl = url.replace(selectedGame, "crystal");
-	fallbackurl = fallbackurl.replace(boolColor, "");
 	v += '<div class="tiny-poke-icon"><img src="' + url + '" onerror="this.onerror=null; this.src=\'' + fallbackurl + '\'"></div>';
 	v += '<div class="tiny-poke-info">';
 	v += `<div style="display:flex;flex-wrap:wrap;">${pokeLink(p.name)} <span class="tiny-poke-level">Lvl ${tp.level}</span></div>`;
